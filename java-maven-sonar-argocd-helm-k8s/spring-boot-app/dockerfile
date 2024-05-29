@@ -1,0 +1,6 @@
+#own docker file to reate an image that contains java jdk 17
+FROM ubuntu:latest
+RUN apt-get update && apt-get install openjdk-17-jdk
+WORKDIR /opt/app
+COPY ./target/*.jar javaapp.jar
+ENTRYPOINT ["java","-jar","javaapp.jar"]
